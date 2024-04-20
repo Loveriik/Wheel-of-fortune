@@ -43,6 +43,7 @@ bet.addEventListener('input', () => {
 
 function play() {
     popUp.classList.remove('move-pop-up');
+    playBtn.setAttribute('disabled', '');
 
     try {
         inputValidation(bet.value);
@@ -66,6 +67,8 @@ function play() {
         errorPopUp.textContent = e.message;
         bet.style.border = '2px solid #ff3333';
         errorPopUp.classList.add('goUp');
+
+        playBtn.removeAttribute('disabled');
     }
 
 }
@@ -75,6 +78,7 @@ playBtn.addEventListener('transitionend', (e) => {
 })
 
 wheelBody.addEventListener('transitionend', () => {
+    playBtn.removeAttribute('disabled');
     getWinner();
     wheelBody.classList.remove('blur');
 });
@@ -143,9 +147,9 @@ function popUpValidation(sum, popUp) {
 }
 
 function inputValidation(betInput) {
-    if (betInput === '') {
-        throw new Error("The input is empty. Please type in your bet.");
-    } else if (betInput < 0) {
-        throw new Error("The input should be a positive number.");
+    const pattern = /^[1-9]\d*$/;
+
+    if (!pattern.test(betInput)) {
+        throw new Error("Please, type in the correct input. It should be a positive number.");
     }
 }

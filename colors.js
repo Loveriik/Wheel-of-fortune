@@ -15,13 +15,13 @@ export const colors = [
         color2: "#45ffff",
         color1: "#00cdcd",
         action: '-',
-        value: '5000'
+        value: '500'
     },
     {
         color2: "#4e8cff",
         color1: "#0739aa",
-        action: '/',
-        value: '4'
+        action: '+',
+        value: '2000'
     },
     {
         color2: "#964bfc",
