@@ -11,9 +11,7 @@ const errorPopUp = document.querySelector('.error-message');
 let savedDegree;
 let newBet;
 
-for (let i = 0; i < colors.length; i++) {
-    gameScore.textContent = 0;
-
+function createSector(i) {
     const triangle = document.createElement('div');
     const label = document.createElement('span')
     label.classList.add('label');
@@ -33,6 +31,14 @@ for (let i = 0; i < colors.length; i++) {
 
     wheelBody.appendChild(triangle);
 }
+
+
+for (let i = 0; i < colors.length; i++) {
+    gameScore.textContent = 0;
+
+    createSector(i);
+}
+
 
 playBtn.addEventListener('click', play)
 
@@ -153,3 +159,6 @@ function inputValidation(betInput) {
         throw new Error("Please, type in the correct input. It should be a positive number.");
     }
 }
+
+
+// console.log(document.querySelector('.triangle').getBoundingClientRect())

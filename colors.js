@@ -72,4 +72,3 @@ export const colors = [
         value: '3000'
     }
 ]
-
