@@ -15,7 +15,7 @@
 
     <div class="score-container">
       <span class="points">Score: </span>
-      <span class="points game-score"></span>
+      <span class="points game-score">0</span>
       <span class="points">$</span>
 
       <span class="bet-popup"> + 1000</span>
@@ -31,7 +31,13 @@
 
     <div class="bet-container">
       <label class="bet-label" for="bet">Place your bet</label>
-      <input type="number" id="bet" placeholder="500" step="100" />
+      <input
+        type="number"
+        id="bet"
+        placeholder="Set your bet"
+        step="100"
+        min="1"
+      />
 
       <p class="error-message"></p>
     </div>

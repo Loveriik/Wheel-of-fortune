@@ -128,9 +128,6 @@ body {
   border: 3px solid #880504;
 
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-
-  /* transform-origin: 20px 0;
-  rotate: 40deg; */
 }
 
 .arrow::after,

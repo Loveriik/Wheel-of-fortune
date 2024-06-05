@@ -34,8 +34,6 @@ function createSector(i) {
 
 
 for (let i = 0; i < colors.length; i++) {
-    gameScore.textContent = 0;
-
     createSector(i);
 }
 
@@ -55,11 +53,10 @@ function play() {
         inputValidation(bet.value);
 
         newBet = parseInt(bet.value);
-        bet.value = '';
 
         const rotateDeg = 360 * 3 + Math.floor(Math.random() * 670);
 
-        wheelBody.style.transition = 'transform 5s';
+        wheelBody.style.transition = 'transform 5s ease-in-out';
         wheelBody.classList.add('blur');
 
         if (savedDegree === undefined) {
@@ -101,6 +98,8 @@ function getWinner() {
 
     scoreCalculation(sectorAction, sectorValue, newBet);
     newBet = undefined;
+
+    bet.value = '';
 }
 
 
@@ -153,12 +152,7 @@ function popUpValidation(sum, popUp) {
 }
 
 function inputValidation(betInput) {
-    const pattern = /^[1-9]\d*$/;
-
-    if (!pattern.test(betInput)) {
+    if (betInput < 0 || betInput === '0' || betInput === '') {
         throw new Error("Please, type in the correct input. It should be a positive number.");
     }
 }
-
-
-// console.log(document.querySelector('.triangle').getBoundingClientRect())
